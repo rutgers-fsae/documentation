@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=blue, linktoc=section, linkcolor=blue}
+
+\title{New Member Project 2026}
+\author{LV/Software Lead: Jeevan Shah \\ HV/Hardware Lead: Vaanika Singla}
+
+\begin{document}
+    \maketitle
+    \section*{Overview}
+    Your task is to create a circuit that monitors 16 temperature sensors, converts them into digital signals, processes them, and then outputs them over the I2C bus. By \textit{November 1, 2026} you must deliver:
+    \begin{itemize}
+        \item A circuit schematic
+        \item A flow chart for your circuit
+        \item Working code
+        \item A physical circuit
+        \item A design document
+    \end{itemize}
+    Your group will be expect to present your final circuit/design at the end of the $8$ week process, either on \textit{Tuesday, November 3, 2026} or \textit{Thursday, November 5, 2026}. You will also have the opportunity to elect to present your design on the week of \textit{October 18, 2026}. 
+
+    While some members of the group may focus more on hardware and others software, it is \textbf{expected} that \textbf{all} members of the group be knowledgable about \textbf{both} the hardware and software.
+    
+    \section*{Project Breakdown}
+    \subsection*{Schematic}
+    Groups will be expected to use the \textbf{student version of Altium Designer} to design a circuit which includes:
+    \begin{itemize}
+        \item $1$ arduino nano
+        \item Is powered from 5V
+        \item Includes signal conditioning
+        \item \textit{insert multiplexer p/n}
+        \item \textit{insert more hardware specifications}
+    \end{itemize}
+
+    \subsection*{Code}
+    Groups will be expected to write \texttt{C} code for their arduinos. Your code is expected to 
+    \begin{itemize}
+        \item Read the analog signal from each temperature sensor
+        \item Convert the analog signal into a voltage using the onboard ADC {\tiny{\textit{(look this up if you don't know what it means!)}}} 
+        \item Find the highest temperature of all $16$ sensors 
+        \item Report that temperature via I2C
+        \item Maintain a git repository for version control (including standard basic documentation such as a \texttt{README.md} - note that is is different from the design document.)
+    \end{itemize}
+    \begin{tcolorbox} 
+    {\Large \textbf{FOR THE PURPOSES OF THE NEW MEMBER PROJECT AND PROCESS THE USE OF GENERATIVE AI AND CODING ASSISTANTS IS \colorbox{red}{\textit{NOT ALLOWED}}}}
+    \end{tcolorbox}
+    Using websites like stack overflow and geeks4geeks is encouraged, however, if you take a piece of code from an external source please leave a comment attributing the original source.
+    Active use of version control is expected, including informative commit messages. For those who are unaware, see \href{https://www.conventionalcommits.org/en/v1.0.0/}{\underline{conventional commits}}.
+
+    \subsection*{Design Document}
+    A design document, or design doc, is a \textbf{written}, document that includes pictures, figures, calculations, and explainations of your engineering choices. You should be explaining why you choose a certain algorithm or filtering strategy over another (for example: `based on the provided parts and rules, it made the most sense to\dots' or `because of the arduino nano has X characteristic, we choose Y algorithm', etc.). The document should be uploaded in \texttt{.pdf} format as well as the original format (i.e. a \texttt{.tex} file if it's written in \LaTeX, or a \texttt{.docx} file if it's written using word, \texttt{.md} files are also acceptable and the \texttt{.md} file alone is okay). A sample design document is attached here \textit{(*attach mehal/stuart pre charge design doc?*)}
+    
+    \subsection*{Timelines}
+    The new member project will be split into two phases: first there is \textit{design}, and \textit{assembly and integration}. 
+    \begin{itemize}
+        \item The design phase will run from \underline{Tuesday September 21} till \underline{Sunday October 18}. On October 18, groups will be expected to have their schematics completed, flow charts made, and an outline of code architecture uploaded to GitHub 
+        \item The assembly and manufacturing phase will run from \underline{Monday October 19} till \underline{Sunday November 1}. On November 1, groups will be expect to have a functional physical circuit with working code, a written design document, and a tracked history of commits on GitHub. 
+    \end{itemize}
+
+    \subsection*{Misc.}
+    \begin{enumerate}
+        \item This project was specifically choosen because of its room for added complexity. A (non-exhaustive) list of ways to increase the complexity of the project include: 
+        \begin{enumerate}
+            \item Finding the all three of the lowest, highest, and average temperature 
+            \item Implementing a filtering algorithm to remove noise 
+            \item Reporting all $16$ channel temperatures over I2C 
+            \item Min-maxxing time/space complexity 
+            \item \textit{hardware complexity ideas here}
+        \end{enumerate}
+
+        \item If there is an issue with any person in a group (not putting in work, unable to reach them, arguments, etc) it is the responsibility of the \textit{group} to reach out to Vaanika and Jeevan. Based on the situation, we will determine what the next steps are.
+        
+        \item Working on the new member project \textbf{does not} stop you from being able to take on other work. Note that the new member project is equally as important as any other work you may recieve.
+        
+        \item Throughout the course of the following $6$ weeks electronics meetings will become shorter $30-45$ minute seminars surrounding skills you will need to know in regards to the new member project. These include: 
+        \begin{itemize}
+            \item Microcontroller Basics
+            \item Sensor Input Conditioning
+            \item Version Control 
+            \item Basic Electronic Tools
+        \end{itemize}
+        However, we expect that you will put in time outside of these meetings/seminars to learn on your own, as well as coming to the shop and ask questions. 
+
+        \item Before you can work with any live electronics in the shop you \textbf{must} be REHS trained. Any member of any group who does not get REHS trained is unable to participate in the assmebly phase.
+
+        \item Similarly, members must have signed the RFR Constitution, Waiver, and Code of Conduct before participating in the assembly phase.
+
+        \item During the assmebly phase, groups \textbf{must} work on their circuit \textit{inside the shop}. No group or group member is able to take any components of the circuit outside of the shop.
+
+        \item All group members are expected to be \textbf{respectful}, \textbf{kind}, \textbf{communicative}, and \textbf{responsible}. Members who are not following these traits may lead to removal from the new member process and the team overall.
+
+        \item Design presentations will happen on \underline{Tuesday, October 20} and \underline{Thursday, October 22}. \textbf{It is optional to present your design} (meaning the meetings this week are optional), however, it is highly recommended in order to get final feedback on your system before moving into the assmebly phase. Final presentations will happen on \underline{Tuesday, November 3} and \underline{Thursday, November 5} - \textbf{these are NOT optional}, every group must present.
+        \item As mentioned earlier, each group member is expected to understand \textbf{both} the hardware and software aspects of the project. They should be able to answer technical questions of moderate rigor.
+    \end{enumerate}
+
+    \footnotetext{\LaTeX\, code for this document can be found on github \href{https://github.com/rutgers-fsae/documentation/newMemberProject2026/main.tex}{\underline{here}}}
+\end{document}
