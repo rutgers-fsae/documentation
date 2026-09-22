@@ -3,7 +3,7 @@
 \usepackage{tcolorbox}
 \usepackage{hyperref}
 
-\hypersetup{colorlinks=blue, linktoc=section, linkcolor=blue}
+\hypersetup{colorlinks=true, linktoc=section, linkcolor=blue}
 
 \title{New Member Project 2026}
 \author{LV/Software Lead: Jeevan Shah \\ HV/Hardware Lead: Vaanika Singla}
@@ -27,11 +27,13 @@
     \subsection*{Schematic}
     Groups will be expected to use the \textbf{student version of Altium Designer} to design a circuit which includes:
     \begin{itemize}
-        \item $1$ arduino nano
-        \item Is powered from 5V
-        \item Includes signal conditioning
-        \item \textit{insert multiplexer p/n}
-        \item \textit{insert more hardware specifications}
+        \item $1$ Arduino Nano
+        \item 12V to 5V DCDC Converter
+        \item Converts the temperature sensors input into an analog signal (signal conditioning) 
+        \item Multiplexer: CD74HC4067
+        \item Blinking Red LED 
+        \item Implement all components according to 
+        \item Commit Altium Designer changes to git 
     \end{itemize}
 
     \subsection*{Code}
@@ -42,6 +44,9 @@
         \item Find the highest temperature of all $16$ sensors 
         \item Report that temperature via I2C
         \item Maintain a git repository for version control (including standard basic documentation such as a \texttt{README.md} - note that is is different from the design document.)
+        \begin{itemize}
+            \item For a reference you may view the \href{https://github.com/rutgers-fsae/firmware}{\underline{offical RFR firmware github}}
+        \end{itemize}
     \end{itemize}
     \begin{tcolorbox} 
     {\Large \textbf{FOR THE PURPOSES OF THE NEW MEMBER PROJECT AND PROCESS THE USE OF GENERATIVE AI AND CODING ASSISTANTS IS \colorbox{red}{\textit{NOT ALLOWED}}}}
@@ -49,13 +54,19 @@
     Using websites like stack overflow and geeks4geeks is encouraged, however, if you take a piece of code from an external source please leave a comment attributing the original source.
     Active use of version control is expected, including informative commit messages. For those who are unaware, see \href{https://www.conventionalcommits.org/en/v1.0.0/}{\underline{conventional commits}}.
 
+\subsection*{Altium}
+    You will be expected to use Altium Designer to create a schematic and present your design. 
+    You must use Altium Designer Student Edition and will not be given RFR licenses until you are doing RFR work. You will use git for version control (and for us to monitor your progress.)
+
+    There are plenty of resources online on how to use 
+    
     \subsection*{Design Document}
-    A design document, or design doc, is a \textbf{written}, document that includes pictures, figures, calculations, and explainations of your engineering choices. You should be explaining why you choose a certain algorithm or filtering strategy over another (for example: `based on the provided parts and rules, it made the most sense to\dots' or `because of the arduino nano has X characteristic, we choose Y algorithm', etc.). The document should be uploaded in \texttt{.pdf} format as well as the original format (i.e. a \texttt{.tex} file if it's written in \LaTeX, or a \texttt{.docx} file if it's written using word, \texttt{.md} files are also acceptable and the \texttt{.md} file alone is okay). A sample design document is attached here \textit{(*attach mehal/stuart pre charge design doc?*)}
+    A design document, or design doc, is a \textbf{written}, document that includes pictures, figures, calculations, and explainations of your engineering choices. You should be explaining why you choose a certain algorithm or filtering strategy over another (for example: `based on the provided parts and rules, it made the most sense to\dots' or `because of the arduino nano has X characteristic, we choose Y algorithm', etc.). The document should be uploaded in \texttt{.pdf} format as well as the original format (i.e. a \texttt{.tex} file if it's written in \LaTeX, or a \texttt{.docx} file if it's written using word, \texttt{.md} files are also acceptable and the \texttt{.md} file alone is okay). You can view sample design documents \href{https://github.com/rutgers-fsae/documentation/blob/main/precharge/main.pdf}{\underline{here}} and \href{https://drive.google.com/file/d/1mUIWuwT8qSY-9I3jNhvqWs8yV2dQfkyD/view?usp=sharing}{\underline{here}}.
     
     \subsection*{Timelines}
     The new member project will be split into two phases: first there is \textit{design}, and \textit{assembly and integration}. 
     \begin{itemize}
-        \item The design phase will run from \underline{Tuesday September 21} till \underline{Sunday October 18}. On October 18, groups will be expected to have their schematics completed, flow charts made, and an outline of code architecture uploaded to GitHub 
+        \item The design phase will run from \underline{Tuesday September 21} till \underline{Sunday October 18}. On October 18, groups will be expected to have their schematics completed, flow charts made, and an outline of code architecture uploaded to GitHub along with \textbf{completed design documents}. 
         \item The assembly and manufacturing phase will run from \underline{Monday October 19} till \underline{Sunday November 1}. On November 1, groups will be expect to have a functional physical circuit with working code, a written design document, and a tracked history of commits on GitHub. 
     \end{itemize}
 
@@ -67,7 +78,9 @@
             \item Implementing a filtering algorithm to remove noise 
             \item Reporting all $16$ channel temperatures over I2C 
             \item Min-maxxing time/space complexity 
-            \item \textit{hardware complexity ideas here}
+            \item Active Filtering + Amplification 
+            \item Utilizing a I2C Mux rather than an Analog MUX
+            \item Achieve atleast an 1000Hz sampling rate 
         \end{enumerate}
 
         \item If there is an issue with any person in a group (not putting in work, unable to reach them, arguments, etc) it is the responsibility of the \textit{group} to reach out to Vaanika and Jeevan. Based on the situation, we will determine what the next steps are.
