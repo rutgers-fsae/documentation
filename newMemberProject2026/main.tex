@@ -28,14 +28,34 @@
     Groups will be expected to use the \textbf{student version of Altium Designer} to design a circuit which includes:
     \begin{itemize}
         \item $1$ Arduino Nano
-        \item 12V to 5V DCDC Converter (this will exist on the schematic but it will \textbf{not} be implemented on the physical circuit)
-        \item Converts the temperature sensors input into an analog signal (signal conditioning) 
+        \item 12V to 5V DCDC Converter
+        \item Converts the temperature sensor input into an analog signal (signal conditioning) 
         \item Multiplexer: CD74HC4067
-        \item Blinking Red LED 
+        \item Blinking Red LED when temperatures are above 60C
         \item Implement all components according to 
         \item Commit Altium Designer changes to git 
     \end{itemize}
 
+    \subsection*{Physical Circuit}
+    You will be expected to make a physical circuit using a breadboard, jumper cable, and physical components. You be given the following inputs: 
+    \begin{itemize}
+        \item 5V Voltage Source (You do not need to physically implement the 12 to 5 V DCDC) 
+        \item All 16 temperature-sensitive diodes (just the diode)
+    \end{itemize}
+    You must output: 
+    \begin{itemize}
+        \item An I2C signal with all the temperatures 
+        \item A red blinking LED indicating a fault (temperatures above 60C)
+    \end{itemize}
+    You will be given: 
+    \begin{itemize}
+        \item Arduino Nano 
+        \item Breadboard 
+        \item Jumper Cables 
+        \item Various resistors 
+        \item N channel and P channel MOSFETs
+        \item Multiplexer: CD74HC4067
+    \end{itemize}
     \subsection*{Code}
     Groups will be expected to write \texttt{C} code for their arduinos. Your code is expected to 
     \begin{itemize}
@@ -58,7 +78,9 @@
     You will be expected to use Altium Designer to create a schematic and present your design. 
     You must use Altium Designer Student Edition and will not be given RFR licenses until you are doing RFR work. You will use git for version control (and for us to monitor your progress.)
 
-    There are plenty of resources online on how to use 
+    There are plenty of resources online on how to use Altium. Your must make a project and make a schematic in that project to be submitted for review. The hardware folder on GitHub must include a \textbf{PDF} of the schematic.
+
+    
     
     \subsection*{Design Document}
     A design document, or design doc, is a \textbf{written}, document that includes pictures, figures, calculations, and explainations of your engineering choices. You should be explaining why you choose a certain algorithm or filtering strategy over another (for example: `based on the provided parts and rules, it made the most sense to\dots' or `because of the arduino nano has X characteristic, we choose Y algorithm', etc.). The document should be uploaded in \texttt{.pdf} format as well as the original format (i.e. a \texttt{.tex} file if it's written in \LaTeX, or a \texttt{.docx} file if it's written using word, \texttt{.md} files are also acceptable and the \texttt{.md} file alone is okay). You can view sample design documents \href{https://github.com/rutgers-fsae/documentation/blob/main/precharge/main.pdf}{\underline{here}} and \href{https://drive.google.com/file/d/1mUIWuwT8qSY-9I3jNhvqWs8yV2dQfkyD/view?usp=sharing}{\underline{here}}.
