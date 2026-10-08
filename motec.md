@@ -34,3 +34,10 @@
 3. Select the desired channel
 4. Choose the desired rate (check with a lead or Jeevan if you're unsure what the correct rate should be)
 5. Click 'Ok'
+6. Once the new configuration is updated, you can click the Chart Icon (hovering over the icon should show "Monitor Channels") and view all the data the MoTeC is reading
+
+
+### Flashing the MoTeC
+1. Connect the shoptop to the MoTeC using an ethernet cable
+2. Select the oval icon with the red arrow pointing up (hovering over the icon should show "Send Configuration")
+3. The MoTeC should automatically connect and then just follow the on screen instructions to update (if any warnings or errors pop up ask a lead or Jeevan)
