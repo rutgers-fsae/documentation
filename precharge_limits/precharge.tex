@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{float}
+
+\title{\includegraphics[width=0.4\textwidth]{media/logo_crop.png}\\[1.5ex]
+  Precharge Sequence Current Draw Thresholds}
+\author{Vaanika Singla}
+\date{11/10/2026}
+
+\begin{document}
+\maketitle
+
+\section*{Revision Log}
+\begin{tabular}{lll}
+\toprule
+\textbf{Editor} & \textbf{Date} & \textbf{Revision} \\
+\midrule
+Vaanika Singla & 11/10/2026 & Rev 1; Wrote document \\
+\bottomrule
+\end{tabular}
+
+\section*{Purpose}
+% TODO: Purpose section is empty in the original draft.
+
+\section*{Parties Involved}
+\begin{tabular}{lll}
+\toprule
+\textbf{Name} & \textbf{Team Role} & \textbf{Report Role} \\
+\midrule
+Vaanika Singla & Electronics Co-lead & Author \\
+\bottomrule
+\end{tabular}
+
+\section*{Issue}
+During precharge, the first isolation relay closes and the system voltage rises through limiting resistors (Figure~\ref{fig:model}). Precharge is complete when the second isolation relay closes, which happens once the inverter voltage reaches 90\% of the battery voltage.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.45\textwidth]{media/image1.png}
+  \caption{Precharge system model.}
+  \label{fig:model}
+\end{figure}
+
+Any load that draws current during precharge pulls it through the precharge resistors and drops voltage across them. The High Voltage Indicator Light (HVIL) in Figure~\ref{fig:hvil} is one such load. This drop makes the BMS voltage reading differ from the inverter voltage reading. For precharge to complete, the drop must be less than the difference between battery voltage and intermediate circuit voltage at the 90\% point.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\textwidth]{media/diagram_crop.png}
+  \caption{HVIL current draw from the high voltage system.}
+  \label{fig:hvil}
+\end{figure}
+
+Two cases are checked below, at lowest and highest state of charge (SoC).
+
+\subsection*{Method}
+Precharge ends when the intermediate circuit voltage reaches 90\% of the battery voltage:
+\[
+V_{IC} = 0.90\,V_{batt}
+\]
+The voltage left across the precharge resistors at that point is:
+\[
+\Delta V = V_{batt} - V_{IC} = 0.10\,V_{batt}
+\]
+A current $I$ through the precharge resistance $R$ drops $IR$. Precharge completes only if $IR < \Delta V$, so
+\[
+I < \frac{\Delta V}{R}, \qquad R = \SI{2.5}{\kilo\ohm}
+\]
+
+\subsection*{Case 1 (Lowest SoC)}
+\begin{align*}
+V_{batt} &= \SI{250}{V} \\
+V_{IC}   &= 0.90 \times 250 = \SI{225}{V} \\
+\Delta V &= 250 - 225 = \SI{25}{V} \\
+I_{max}  &= \frac{\SI{25}{V}}{\SI{2.5}{\kilo\ohm}} = \SI{10}{mA}
+\end{align*}
+
+\subsection*{Case 2 (Highest SoC)}
+\begin{align*}
+V_{batt} &= \SI{378}{V} \\
+V_{IC}   &= 0.90 \times 378 = \SI{340.2}{V} \\
+\Delta V &= 378 - 340.2 = \SI{37.8}{V} \\
+I_{max}  &= \frac{\SI{37.8}{V}}{\SI{2.5}{\kilo\ohm}} = \SI{15.12}{mA}
+\end{align*}
+
+\subsection*{Summary}
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Case} & $V_{batt}$ (V) & $V_{IC}$ (V) & $\Delta V$ (V) & $I_{max}$ (mA) \\
+\midrule
+1 (Lowest SoC)  & 250 & 225.0 & 25.0 & 10.00 \\
+2 (Highest SoC) & 378 & 340.2 & 37.8 & 15.12 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Case 1 is the limiting case, so total current draw during precharge must stay below $\SI{10}{mA}$ across the full SoC range.
+
+\section*{Citations}
+
+\end{document}
