@@ -79,7 +79,7 @@ Limits the output power of the motor to a max of 80kW
 ### Brake Light 
 Turns on the brake light
 - Must check if the brakes are pressed (1)
-- If condition (1) is met the brake light must be enabled
+- While condition (1) is met, the brake light must be enabled
     - via GPIO (PB10)
 
 ### CAN Communication
