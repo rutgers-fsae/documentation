@@ -69,6 +69,7 @@ Controls the speed at which the fans spin and the pump pumps
 Flashes all LEDs on statup for 2 seconds 
 - Must turn on all LEDs (connected to PCM) on start up for 2 seconds: BMS Fault, IMD Fault, TSS Green, TSS Red
     - via GPIO (PB6)
+        - GPIO must be configured to be floating and NOT push/pull
 
 ### Power Limiting Algorithm
 Limits the output power of the motor to a max of 80kW
